@@ -1,5 +1,5 @@
 # Lua-SquirrelNoise5
-This is a Lua implementation of Squirrel Eiserloh's SquirrelNoise5 algorithm, which is a modified version of his squirrel3 algorithm presented at GDC 2017.
+This is a Lua 5.4 implementation of Squirrel Eiserloh's SquirrelNoise5 algorithm, which is a modified version of his squirrel3 algorithm presented at GDC 2017.
 
 The GDC talk can be found here: https://www.youtube.com/watch?v=LWFzPP8ZbdU
 
