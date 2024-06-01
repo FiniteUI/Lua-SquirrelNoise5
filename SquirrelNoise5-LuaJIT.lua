@@ -62,6 +62,7 @@ function SquirrelNoise5:new(seed)
     return new
 end
 
+--noise functions
 function SquirrelNoise5:noise(input)
     --due to the way lua stores large numbers, this won't always return as the algorithm should
     --can't get around this without using a library for large numbers, which will significantly impact performance

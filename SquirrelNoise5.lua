@@ -9,6 +9,7 @@ SquirrelNoise5.BIT_NOISE_3 = UInt32:new("6C736F4B")
 SquirrelNoise5.BIT_NOISE_4 = UInt32:new("B79F3ABB")
 SquirrelNoise5.BIT_NOISE_5 = UInt32:new("1b56c4f5")
 SquirrelNoise5.PRIME_1 = 198491317
+SquirrelNoise5.PRIME_2 = 6542989
 SquirrelNoise5.MAX = UInt32.max
 SquirrelNoise5.HALF = UInt32.max // 2
 SquirrelNoise5.NORMAL = 1 / UInt32.max
@@ -21,6 +22,18 @@ local function get2DInput(x, y)
     assert(math.type(y) == "integer", "Error: Y must be an integer.")
 
     local input = x + y * SquirrelNoise5.PRIME_1
+    return input
+end
+
+local function get3DInput(x, y, z)
+    assert(type(x) == "number", "Error: X must be an integer.")
+    assert(math.type(x) == "integer", "Error: X must be an integer.")
+    assert(type(y) == "number", "Error: Y must be a integer.")
+    assert(math.type(y) == "integer", "Error: Y must be an integer.")
+    assert(type(z) == "number", "Error: Z must be a integer.")
+    assert(math.type(z) == "integer", "Error: Z must be an integer.")
+
+    local input = x + y * SquirrelNoise5.PRIME_1 + z * SquirrelNoise5.PRIME_2
     return input
 end
 
@@ -40,6 +53,7 @@ function SquirrelNoise5:new(seed)
     return new
 end
 
+--noise function
 function SquirrelNoise5:noise(input)
     assert(type(input) == "number", "Error: Input must be an integer.")
     assert(math.type(input) == "integer", "Error: Input must be an integer.")
@@ -117,6 +131,7 @@ function SquirrelNoise5:noiseBooleanThreshold(input, threshold)
     end
 end
 
+--2D functions
 function SquirrelNoise5:noise2D(x, y)
     local input = get2DInput(x, y)
 
@@ -153,6 +168,44 @@ function  SquirrelNoise5:noiseBooleanThreshold2D(x, y, threshold)
     return self:noiseBooleanThreshold(input, threshold)
 end
 
+--3D functions
+function SquirrelNoise5:noise3D(x, y)
+    local input = get3DInput(x, y)
+
+    return self:noise(input)
+end
+
+function  SquirrelNoise5:normalizedNoise3D(x, y, z)
+    local input = get3DInput(x, y, z)
+
+    return self:normalizedNoise(input)
+end
+
+function  SquirrelNoise5:rangeNoise3D(x, y, z, min, max)
+    local input = get3DInput(x, y, z)
+
+    return self:rangeNoise(input, min, max)
+end
+
+function  SquirrelNoise5:rangeNoiseInteger3D(x, y, z, min, max)
+    local input = get3DInput(x, y, z)
+
+    return self:rangeNoiseInteger(input, min, max)
+end
+
+function  SquirrelNoise5:noiseBoolean3D(x, y, z)
+    local input = get3DInput(x, y, z)
+
+    return self:noiseBoolean(input)
+end
+
+function  SquirrelNoise5:noiseBooleanThreshold3D(x, y, z, threshold)
+    local input = get3DInput(x, y, z)
+
+    return self:noiseBooleanThreshold(input, threshold)
+end
+
+--random functions
 function SquirrelNoise5:randomInteger()
     self.position = self.position + 1
 
