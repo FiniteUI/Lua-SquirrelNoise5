@@ -25,17 +25,17 @@ There are also implementations of random functions that can return randomized va
 
 ## Usage
 To use the library in a project, copy the [SquirrelNoise5.lua](SquirrelNoise5.lua) file into the main project directory, and require it in the main Lua script:
-```
+```lua
 require("SquirrelNoise5")
 ```
 
 To use the LuaJIT version, copy the [SquirrelNoise5-LuaJIT.lua](SquirrelNoise5-LuaJIT.lua) file into the project directory, and require it in the script:
-```
+```lua
 require("SquirrelNoise5-LuaJIT")
 ```
 
 To create a new noise generator object, use the new function:
-```
+```lua
 SquirrelNoise5:new(seed)
 ```
 
