@@ -11,6 +11,7 @@ SquirrelNoise5.BIT_NOISE_5 = UInt32:new("1b56c4f5")
 SquirrelNoise5.PRIME_1 = 198491317
 SquirrelNoise5.PRIME_2 = 6542989
 SquirrelNoise5.MAX = UInt32.max
+SquirrelNoise5.MIN = UInt32.min
 SquirrelNoise5.HALF = math.floor(UInt32.max / 2)
 SquirrelNoise5.NORMAL = 1 / UInt32.max
 
@@ -62,7 +63,7 @@ function SquirrelNoise5:new(seed)
     return new
 end
 
---noise functions
+--1D functions
 function SquirrelNoise5:noise(input)
     --due to the way lua stores large numbers, this won't always return as the algorithm should
     --can't get around this without using a library for large numbers, which will significantly impact performance
